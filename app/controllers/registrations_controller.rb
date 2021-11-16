@@ -10,6 +10,8 @@ class RegistrationsController < ApplicationController
 
         @user = User.new(user_params)
         if @user.save
+          #setup a cookie
+          session[:user_id] = @user.id #this is more secure, than using the cookie which could be altered in the browser
           redirect_to root_path, notice: "Successfully created account"
         else
             #this will go to views/registration/new.html.erd and rerender it
