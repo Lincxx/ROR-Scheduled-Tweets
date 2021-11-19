@@ -3,8 +3,8 @@
    
 </div>
 
- <% if @user %>  
-    Logged in as <%= @user.email%>
+ <% if Current.user %>  
+    Logged in as <%= Current.user.email%>
 
     <%
 =begin%>
