@@ -22,6 +22,7 @@ Rails.application.routes.draw do
 
   # this will generate all the crud actions
   resources :twitter_accounts
+  resources :tweets
 
   root to: "main#index"
 
