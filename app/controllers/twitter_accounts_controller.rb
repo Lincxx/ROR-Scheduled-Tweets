@@ -1,5 +1,6 @@
 class TwitterAccountsController < ApplicationController
     before_action :require_user_logged_in!
+    before_action :set_twitter_account, only: [:detroy]
     def index
         @twitter_accounts = Current.user.twitter_accounts
     end
@@ -10,5 +11,10 @@ class TwitterAccountsController < ApplicationController
         #destroy the account
         @twitter_account.destroy
         redirect_to twitter_accounts_path, notice: "successfully disconnected @#{@twitter_account.username}"
+    end
+
+    private 
+    def set_twitter_account
+        @twitter_accounts = Current.user.twitter_accounts.find(params[:id])
     end
 end
