@@ -11,4 +11,8 @@ class Tweet < ApplicationRecord
     #Otherwise (if a is defined and evaluates to truthy), then b is not evaluated, and no assignment takes place.
     self.publish_at ||= 24.hour.from_now
   end
+
+  def published?
+    tweet_id?
+  end
 end
